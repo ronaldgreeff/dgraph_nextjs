@@ -109,6 +109,7 @@ async function queryData(dgraphClient) {
     // Print results.
     console.log(`Number of people named "Alice": ${ppl.all.length}`);
     ppl.all.forEach((person) => console.log(person));
+    return ppl;
 }
 
 async function main() {
@@ -117,13 +118,14 @@ async function main() {
     await dropAll(dgraphClient);
     await setSchema(dgraphClient);
     await createData(dgraphClient);
-    await queryData(dgraphClient);
+    return await queryData(dgraphClient);
 }
 
 export default (req, res) => {
   // res.statusCode = 200
   // res.json({ name: 'Penis Man' })
-  main().then(() => {
+  main().then((qd) => {
+    res.json({qd})
     console.log("\nDONE!");
   }).catch((e) => {
     console.log("ERROR: ", e);
