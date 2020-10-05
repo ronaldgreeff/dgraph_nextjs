@@ -1,8 +1,14 @@
 For reference
 
-Dgraph backend setup with docker containers
-dgraph-js-http client
-nextjs api
+[main code](https://github.com/ronaldgreeff/dgraph_nextjs/blob/master/dgraph-connection/pages/api/test.js)
 
-Todo:
-best way to store client code
+# Setup
+- Dgraph backend
+- dgraph-js-http client
+- nextjs api
+
+## Todo
+Figure out best way to store client code/queries
+will need:
+  main page product
+  product recommendations
